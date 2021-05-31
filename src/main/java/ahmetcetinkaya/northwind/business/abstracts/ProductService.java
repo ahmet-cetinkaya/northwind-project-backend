@@ -5,6 +5,7 @@ import java.util.List;
 import ahmetcetinkaya.northwind.core.utilities.results.DataResult;
 import ahmetcetinkaya.northwind.core.utilities.results.Result;
 import ahmetcetinkaya.northwind.entities.concretes.Product;
+import ahmetcetinkaya.northwind.entities.dtos.ProductWithCategoryDto;
 
 public interface ProductService {
 	Result add(Product product);
@@ -22,6 +23,8 @@ public interface ProductService {
 	DataResult<List<Product>> getAllByProductNameOrCategoryId(String productName, int categoryId);
 
 	DataResult<List<Product>> getAllByProductNameStartsWith(String productName);
+
+	DataResult<List<ProductWithCategoryDto>> getAllProductWithCategoryDetails();
 
 	DataResult<List<Product>> getAllSorted(String direction, String propertyNames);
 

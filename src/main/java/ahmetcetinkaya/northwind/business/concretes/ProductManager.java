@@ -14,6 +14,7 @@ import ahmetcetinkaya.northwind.core.utilities.results.SuccessDataResult;
 import ahmetcetinkaya.northwind.core.utilities.results.SuccessResult;
 import ahmetcetinkaya.northwind.dataAccess.abstracts.ProductDao;
 import ahmetcetinkaya.northwind.entities.concretes.Product;
+import ahmetcetinkaya.northwind.entities.dtos.ProductWithCategoryDto;
 
 @Service
 public class ProductManager implements ProductService {
@@ -66,6 +67,12 @@ public class ProductManager implements ProductService {
 	@Override
 	public DataResult<List<Product>> getAllByProductNameStartsWith(final String productName) {
 		return new SuccessDataResult<List<Product>>(productDao.findAllByProductNameStartsWith(productName));
+	}
+
+	@Override
+	public DataResult<List<ProductWithCategoryDto>> getAllProductWithCategoryDetails() {
+		return new SuccessDataResult<List<ProductWithCategoryDto>>(productDao.findAllProductWithCategoryDetails());
+
 	}
 
 	@Override

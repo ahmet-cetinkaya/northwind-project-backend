@@ -14,6 +14,7 @@ import ahmetcetinkaya.northwind.business.abstracts.ProductService;
 import ahmetcetinkaya.northwind.core.utilities.results.DataResult;
 import ahmetcetinkaya.northwind.core.utilities.results.Result;
 import ahmetcetinkaya.northwind.entities.concretes.Product;
+import ahmetcetinkaya.northwind.entities.dtos.ProductWithCategoryDto;
 
 @RestController
 @RequestMapping("/api/products")
@@ -44,6 +45,11 @@ public class ProductsController {
 	@GetMapping("/getallbyproductnamecontains")
 	public DataResult<List<Product>> getAllByProductNameContains(@RequestParam final String productName) {
 		return productService.getAllByProductNameContains(productName);
+	}
+
+	@GetMapping("/getAllProductWithCategoryDetails")
+	public DataResult<List<ProductWithCategoryDto>> getAllProductWithCategoryDetails() {
+		return productService.getAllProductWithCategoryDetails();
 	}
 
 	@GetMapping("/getallsorted")
